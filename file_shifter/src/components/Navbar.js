@@ -15,7 +15,7 @@ export default function Navbar() {
      */
     const checkAuth = async () => {
       try {
-        const res = await fetch("http://<your-ec2-public-ip>:8080/api/auth/check", {
+        const res = await fetch("http://65.0.95.86:8080/api/auth/check", {
           method: "GET",
           credentials: "include", // send cookies
         });

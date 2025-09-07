@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function LogoutButton() {
   const handleLogout = async () => {
-    await fetch("http://<your-ec2-public-ip>:8080/api/auth/logout", {
+    await fetch("http://65.0.95.86:8080/api/auth/logout", {
       method: "POST",
       credentials: "include",
     });
