@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>FileShifter: Your Effortless File Converter</title>
-</head>
-<body>
+
 
 <h1>FileShifter: Your Effortless File Converter</h1>
 
@@ -79,6 +74,3 @@ aws.secretKey=&lt;your-aws-secret-key&gt;
 <pre><code>npm run dev
 </code></pre>
 <p>The application will be available at <code>http://localhost:3000</code>.</p>
-
-</body>
-</html>
