@@ -11,7 +11,7 @@ export default function LoginPage() {
 
   const router = useRouter();
 
-  const backendUrl = "http://localhost:8080/api/auth";
+  const backendUrl = "http://<your-ec2-public-ip>:8080/api/auth";
 
 
   /**

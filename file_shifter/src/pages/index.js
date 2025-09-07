@@ -16,7 +16,7 @@ export default function Home() {
  * @param {GetServerSidePropsContext} context - The context object
  */
 export async function getServerSideProps(context) {
-  const res = await fetch("http://localhost:8080/api/auth/me", {
+  const res = await fetch("http://<your-ec2-public-ip>:8080/api/auth/me", {
     headers: { cookie: context.req.headers.cookie || "" }, // forward cookies to backend
   });
 

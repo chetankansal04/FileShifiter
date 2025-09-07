@@ -7,7 +7,7 @@ export function useAuthGaurd() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch("http://localhost:8080/api/protected", {
+        const res = await fetch("http://<your-ec2-public-ip>:8080/api/protected", {
           method: "GET",
           credentials: "include",
         });
@@ -21,3 +21,4 @@ export function useAuthGaurd() {
     };
   }, [router]);
 }
+

@@ -9,7 +9,7 @@ export default function RegisterPage() {
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const backendUrl = "http://localhost:8080/api/auth";
+  const backendUrl = "http://<your-ec2-public-ip>:8080/api/auth";
 
   const router = useRouter();
 
