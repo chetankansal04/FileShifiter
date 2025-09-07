@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-mint-green: #171717;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(21% 0.006 285.885);
+    --foreground: #ededed;
+  }
+} */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Playfair", serif;
+}
+
+/* Prevent accidental horizontal scroll on small viewports */
+html,
+body {
+  overflow-x: hidden;
+  color: var(--foreground);
+  font-family: "Playfair", serif;
+}
+@layer components {
+  .main-heading {
+    font-family: "Playfair", serif;
+    font-size: 48px;
+    font-weight: 600;
+    font-style: italic;
+    /* font-playfair text-5xl font-semibold italic; */
+  }
+  .sub-heading {
+    font-family: "Playfair", serif;
+    font-size: 32px;
+    font-weight: 400;
+  }
+  .main-text {
+    font-family: "Inter", serif;
+    font-size: 28px;
+    font-weight: 400;
+  }
+  .sub-text {
+    font-family: "Inter", serif;
+    font-size: 21px;
+    font-weight: 400;
+  }
+}
+
+
