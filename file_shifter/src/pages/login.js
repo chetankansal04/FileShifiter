@@ -35,7 +35,7 @@ export default function LoginPage() {
         setMessage("Logged In Successfully");
         const data = await response.json();
         router.push("/dashboard");
-        console.log("Logged in Succesfully");
+        console.log("Logged in Succesfully",data);
       }
     } catch (error) {
       console.error("Login Failed:", error);

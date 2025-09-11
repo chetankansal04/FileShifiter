@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 
 /**
@@ -57,15 +58,18 @@ public class JwtUtil {
     return extractAllClaims(token).get("userId", String.class);
   }
 
-  // Check if token is expired
-  private boolean isTokenExpired(String token) {
-    return extractAllClaims(token).getExpiration().before(new Date());
-  }
-
   // Validate token for a username
-  public boolean isTokenValid(String token, String username) {
-    final String tokenUsername = extractUserId(token);
-    return (tokenUsername.equals(username) && !isTokenExpired(token));
+  public boolean isTokenValid(String token) {
+     try {
+            Jwts.parser().setSigningKey(key).build().parseClaimsJws(token);
+            return true;
+        } catch (ExpiredJwtException e) {
+            // The token is expired, so it's not valid.
+            return false;
+        } catch (Exception e) {
+            // The token is invalid for other reasons (bad signature, malformed, etc.)
+            return false;
+        }
   }
 
   public UUID getUserIdFromToken(String token) {

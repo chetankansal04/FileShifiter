@@ -4,12 +4,10 @@ import styled from "styled-components";
 
 export default function LogoutButton() {
   const router = useRouter();
-  const handleLogout = async () => {
-    await fetch("http://65.0.95.86:8080/api/auth/logout", {
-      method: "POST",
-      credentials: "include",
-    });
-    router.push("/");
+
+  const handleLogout = () => {
+    destroyCookie(null, "jwtToken", { path: "/" });
+    router.push("/login");
   };
 
   return (

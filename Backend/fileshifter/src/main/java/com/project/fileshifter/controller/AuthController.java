@@ -54,7 +54,7 @@ public class AuthController {
    */
   @GetMapping("/me")
   public ResponseEntity<?> me(@CookieValue(value = "token", required = false) String token) {
-    if (token == null || !jwtUtil.isTokenValid(token, jwtUtil.extractUserId(token))) {
+    if (token == null || !jwtUtil.isTokenValid(token)) {
       return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
     UUID userId = jwtUtil.getUserIdFromToken(token);

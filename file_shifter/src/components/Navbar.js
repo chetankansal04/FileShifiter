@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { User } from "@geist-ui/icons";
-import { useEffect, useState } from "react";
 import LogoutButton from "./LogoutButton";
 
 export default function Navbar({ isLoggedIn }) {
@@ -13,7 +12,7 @@ export default function Navbar({ isLoggedIn }) {
         <Link href="/">FileShifter</Link>
       </h1>
       <div className="flex items-center min-w-fit">
-        {!isLoggedIn ? ( // Use the prop for conditional rendering
+        {!isLoggedIn ? (
           <div className="flex items-center space-x-4">
             {router.pathname === "/register" ? (
               <Link href="/login">

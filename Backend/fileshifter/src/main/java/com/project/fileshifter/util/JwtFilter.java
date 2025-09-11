@@ -49,7 +49,7 @@ public class JwtFilter extends OncePerRequestFilter {
     if (token != null && SecurityContextHolder.getContext().getAuthentication() == null) {
       try {
         // If the token is valid, create an Authentication object
-        if (jwtUtil.isTokenValid(token, jwtUtil.extractUserId(token))) {
+        if (jwtUtil.isTokenValid(token)) {
           UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
               new User("authenticatedUser", "", new ArrayList<>()), null, new ArrayList<>());
           // Set the user in the security context
