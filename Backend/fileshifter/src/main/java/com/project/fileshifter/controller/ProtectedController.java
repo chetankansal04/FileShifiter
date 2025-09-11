@@ -32,28 +32,20 @@ public class ProtectedController {
     this.jwtUtil = jwtUtil;
   }
 
- 
   /**
    * Endpoint to check if the user is logged in. The request should contain a
    * JWT token in the "token" cookie. If the token is invalid or missing, the
    * server will return a 401 Unauthorized response. If the token is valid, the
    * server will return a 200 OK response with a message indicating that the user
    * is logged in.
+   * 
    * @param token The JWT token provided by the client.
    * @return A ResponseEntity containing a message indicating whether the user is
-   * logged in.
+   *         logged in.
    */
   @GetMapping("/api/protected")
-  public ResponseEntity<Map<String, String>> isUserLoggedIn(
-      @CookieValue(value = "token", required = false) String token) {
-
-    if (token == null || !jwtUtil.isTokenValid(token, jwtUtil.extractUserId(token))) {
-      return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-          .body(Collections.singletonMap("message", "Unauthorized"));
-    }
+  public ResponseEntity<Map<String, String>> isUserLoggedIn() {
     return new ResponseEntity<>(Collections.singletonMap("message", "This is protected data"), HttpStatus.OK);
   }
-
-  
 
 }

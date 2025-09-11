@@ -24,20 +24,20 @@ html,
 body {
   overflow-x: hidden;
   color: var(--foreground);
-  font-family: "Playfair", serif;
+  font-family: "Inter", serif;
 }
 @layer components {
   .main-heading {
     font-family: "Playfair", serif;
     font-size: 48px;
-    font-weight: 600;
+    font-weight: 700;
     font-style: italic;
     /* font-playfair text-5xl font-semibold italic; */
   }
   .sub-heading {
     font-family: "Playfair", serif;
     font-size: 32px;
-    font-weight: 400;
+    font-weight: 500;
   }
   .main-text {
     font-family: "Inter", serif;

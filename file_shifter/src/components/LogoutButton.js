@@ -1,7 +1,9 @@
+import { useRouter } from "next/router";
 import React from "react";
 import styled from "styled-components";
 
 export default function LogoutButton() {
+  const router = useRouter();
   const handleLogout = async () => {
     await fetch("http://65.0.95.86:8080/api/auth/logout", {
       method: "POST",

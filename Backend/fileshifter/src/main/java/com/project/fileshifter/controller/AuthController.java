@@ -80,7 +80,6 @@ public class AuthController {
     return new ResponseEntity<>("User registered successfully", HttpStatus.CREATED);
   }
 
-
   /**
    * Endpoint to login a user. The request body should contain the email and
    * password of the user. The response will include a cookie with a JWT token
@@ -120,12 +119,9 @@ public class AuthController {
    * logged in, the server will return a 401 Unauthorized response.
    */
   @GetMapping("/check")
-  public ResponseEntity<?> checkAuth(@CookieValue(name = "token", required = false) String token) {
-    if (token != null && jwtUtil.isTokenValid(token, jwtUtil.extractUserId(token))) {
-      return ResponseEntity.ok(Collections.singletonMap("status", "ok"));
-    } else {
-      return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-    }
+  public ResponseEntity<?> checkAuth() {
+    // If this endpoint is reached, the user is authenticated by the JWT filter.
+    return ResponseEntity.ok(Collections.singletonMap("status", "ok"));
   }
 
 }
